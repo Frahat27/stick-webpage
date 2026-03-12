@@ -51,9 +51,13 @@ export async function POST(req: NextRequest) {
 
     // Generate a unique numeric phone per session to avoid Redis lock conflicts
     // Use two different hashes to minimize collisions
-    const s = sessionId || 'anonymous';
-    const h1 = Array.from(s).reduce((a: number, c: string) => (a * 31 + c.charCodeAt(0)) >>> 0, 0);
-    const h2 = Array.from(s).reduce((a: number, c: string) => (a * 37 + c.charCodeAt(0)) >>> 0, 7);
+    const s = String(sessionId || 'anonymous');
+    let h1 = 0;
+    let h2 = 7;
+    for (let i = 0; i < s.length; i++) {
+      h1 = ((h1 * 31 + s.charCodeAt(i)) >>> 0);
+      h2 = ((h2 * 37 + s.charCodeAt(i)) >>> 0);
+    }
     const phone = `54911${String(h1 % 10000000).padStart(7, '0')}${String(h2 % 100).padStart(2, '0')}`;
 
     const body = JSON.stringify({
@@ -62,7 +66,7 @@ export async function POST(req: NextRequest) {
       contact_name: 'Visitante Web',
     });
 
-    async function callSimulate(authToken: string): Promise<Response> {
+    const callSimulate = async (authToken: string): Promise<Response> => {
       return fetch(`${API_URL}/api/v1/admin/simulate`, {
         method: 'POST',
         headers: {
