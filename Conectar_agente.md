@@ -1,5 +1,14 @@
 # Conectar Agente Sofia a una Página Web
 
+## Requisitos previos del proyecto destino
+
+- **Next.js App Router** — la API route y el componente están diseñados para este stack
+- **Tailwind CSS** — los estilos usan clases de Tailwind
+- **Colores custom**: el widget usa clases como `bg-brand-600`, `bg-brand-700` que son custom de STICK. En otro proyecto hay que reemplazarlas por los colores propios (ej: `bg-blue-600`) o definir los colores en el `tailwind.config.ts`
+- **El bot responde según su system prompt**: Sofia está configurada para hablar de STICK (alineadores, turnos, precios). Si el otro proyecto es de otra cosa, hay que ajustar el system prompt en el backend del bot o crear un bot separado
+
+---
+
 ## Arquitectura
 
 ```
