@@ -64,11 +64,16 @@ export default function CTASection({
             <a
               href={secondary.href}
               className={cn(
-                'text-sm font-medium underline underline-offset-2 transition-colors',
-                dark ? 'text-brand-200 hover:text-white' : 'text-neutral-500 hover:text-neutral-700'
+                'inline-flex items-center gap-1.5 text-sm font-medium px-5 py-3 rounded-full border transition-colors active:scale-95',
+                dark
+                  ? 'text-brand-200 border-brand-400 hover:border-white hover:text-white'
+                  : 'text-neutral-600 border-neutral-300 hover:border-neutral-400 hover:text-neutral-900'
               )}
             >
               {secondary.label}
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </a>
           )}
         </div>

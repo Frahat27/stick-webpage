@@ -22,8 +22,25 @@ export default function Home() {
   const waPatient = buildWhatsAppUrl('patient');
   const shortFaqs = faqsPatients.slice(0, 5);
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: shortFaqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative bg-brand-600 text-white overflow-hidden">
         {/* Decoración: isotipo S grande tenue al fondo derecho */}

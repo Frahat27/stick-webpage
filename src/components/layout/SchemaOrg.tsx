@@ -3,14 +3,26 @@ export function SchemaOrg() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'STICK Alineadores',
+    alternateName: 'STICK',
     url: 'https://stickalineadores.com.ar',
     logo: 'https://stickalineadores.com.ar/logo.png',
+    image: 'https://stickalineadores.com.ar/og-image.jpg',
     description:
-      'Sistema de alineadores invisibles con seguimiento clínico real y rediseño incluido.',
+      'Sistema de alineadores invisibles con seguimiento clínico real, rediseño incluido y más de 300 casos documentados. Fabricación local argentina.',
+    foundingDate: '2023',
+    founders: [
+      {
+        '@type': 'Person',
+        name: 'Cynthia H.',
+        jobTitle: 'Odontóloga fundadora',
+        url: 'https://stickalineadores.com.ar/quienes-somos',
+      },
+    ],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
       availableLanguage: 'Spanish',
+      contactOption: 'TollFree',
     },
     address: {
       '@type': 'PostalAddress',
@@ -19,7 +31,10 @@ export function SchemaOrg() {
       addressRegion: 'CABA',
       addressCountry: 'AR',
     },
-    sameAs: ['https://www.instagram.com/stickalineadores'],
+    sameAs: [
+      'https://www.instagram.com/stickalineadores',
+      'https://stickalineadores.com.ar',
+    ],
   };
 
   const localBusinessSchema = {

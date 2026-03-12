@@ -60,6 +60,18 @@ const cases = [
 export default function AntesYDespuesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://stickalineadores.com.ar' },
+            { '@type': 'ListItem', position: 2, name: 'Pacientes', item: 'https://stickalineadores.com.ar/pacientes' },
+            { '@type': 'ListItem', position: 3, name: 'Antes y después', item: 'https://stickalineadores.com.ar/pacientes/antes-y-despues' },
+          ],
+        }) }}
+      />
       {/* Hero */}
       <section className="bg-gradient-to-b from-brand-50 to-white pt-12 pb-8">
         <Container>
@@ -80,7 +92,7 @@ export default function AntesYDespuesPage() {
         <Container>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto text-center">
             {[
-              { value: '+100', label: 'Casos documentados' },
+              { value: '+300', label: 'Casos documentados' },
               { value: '6–12m', label: 'Duración promedio' },
               { value: '22hs', label: 'Uso diario recomendado' },
               { value: '0$', label: 'Rediseños sin cargo extra' },

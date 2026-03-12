@@ -61,6 +61,17 @@ const differentials = [
 export default function QuienesSomosPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://stickalineadores.com.ar' },
+            { '@type': 'ListItem', position: 2, name: 'Quiénes somos', item: 'https://stickalineadores.com.ar/quienes-somos' },
+          ],
+        }) }}
+      />
       {/* Hero */}
       <section className="bg-brand-950 text-white pt-12 pb-12 relative overflow-hidden">
         {/* Isotipo decorativo */}

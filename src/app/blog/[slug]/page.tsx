@@ -64,14 +64,29 @@ export default function BlogPostPage({ params }: Props) {
     '@type': 'Article',
     headline: post.title,
     description: post.description,
-    author: { '@type': 'Organization', name: 'STICK Alineadores' },
+    image: 'https://stickalineadores.com.ar/og-image.jpg',
+    author: {
+      '@type': 'Organization',
+      name: 'STICK Alineadores',
+      url: 'https://stickalineadores.com.ar',
+    },
     publisher: {
       '@type': 'Organization',
       name: 'STICK Alineadores',
       logo: { '@type': 'ImageObject', url: 'https://stickalineadores.com.ar/logo.png' },
     },
     datePublished: post.date,
+    dateModified: post.date,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://stickalineadores.com.ar/blog/${post.slug}`,
+    },
     url: `https://stickalineadores.com.ar/blog/${post.slug}`,
+    inLanguage: 'es-AR',
+    about: {
+      '@type': 'MedicalCondition',
+      name: 'Ortodoncia con alineadores invisibles',
+    },
   };
 
   return (

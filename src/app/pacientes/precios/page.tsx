@@ -17,6 +17,18 @@ export default function PreciosPage() {
   const waUrl = buildWhatsAppUrl('pricing');
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://stickalineadores.com.ar' },
+            { '@type': 'ListItem', position: 2, name: 'Pacientes', item: 'https://stickalineadores.com.ar/pacientes' },
+            { '@type': 'ListItem', position: 3, name: 'Precios', item: 'https://stickalineadores.com.ar/pacientes/precios' },
+          ],
+        }) }}
+      />
       {/* Hero */}
       <section className="bg-gradient-to-b from-brand-50 to-white pt-12 pb-8">
         <Container>

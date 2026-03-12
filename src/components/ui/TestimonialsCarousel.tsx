@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 const reviews = [
   {
@@ -43,19 +43,32 @@ const GoogleIcon = () => (
 
 export default function TestimonialsCarousel() {
   const [page, setPage] = useState(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const visible = reviews.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE);
 
-  const prev = () => setPage((p) => (p === 0 ? totalPages - 1 : p - 1));
-  const next = () => setPage((p) => (p === totalPages - 1 ? 0 : p + 1));
+  const prev = useCallback(() => setPage((p) => (p === 0 ? totalPages - 1 : p - 1)), []);
+  const next = useCallback(() => setPage((p) => (p === totalPages - 1 ? 0 : p + 1)), []);
+
+  const startTimer = useCallback(() => {
+    intervalRef.current = setInterval(next, 5000);
+  }, [next]);
+
+  const stopTimer = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  };
 
   useEffect(() => {
-    const interval = setInterval(next, 5000);
-    return () => clearInterval(interval);
-  }, []);
+    startTimer();
+    return stopTimer;
+  }, [startTimer]);
 
   return (
-    <div className="flex-1 flex flex-col min-h-0">
+    <div
+      className="flex-1 flex flex-col min-h-0"
+      onMouseEnter={stopTimer}
+      onMouseLeave={startTimer}
+    >
       {/* 3 cards — stretch to fill height */}
       <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-4">
         {visible.map((t) => (
