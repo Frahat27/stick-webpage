@@ -120,6 +120,7 @@ export default function OrtodoncistasPage() {
                   height={600}
                   className="w-full h-full object-cover object-top"
                   priority
+                  sizes="(max-width: 1024px) 0px, 384px"
                 />
               </div>
             </div>

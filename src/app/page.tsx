@@ -87,6 +87,7 @@ export default function Home() {
                     height={600}
                     className="w-full h-auto object-cover"
                     priority
+                    sizes="(max-width: 1280px) 320px, 384px"
                   />
                 </div>
                 {/* Badge flotante */}
@@ -222,6 +223,7 @@ export default function Home() {
                       width={280}
                       height={280}
                       className={`w-full h-full object-cover ${position}`}
+                      sizes="(max-width: 768px) 90vw, 25vw"
                     />
                   </div>
 
@@ -319,6 +321,7 @@ export default function Home() {
                   width={400}
                   height={480}
                   className="w-full h-auto object-cover"
+                  sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
                 />
                 <div className="px-4 py-3 flex items-center justify-between">
                   <span className="text-sm font-medium text-neutral-700">{c.label}</span>

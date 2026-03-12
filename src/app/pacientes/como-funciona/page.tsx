@@ -145,6 +145,7 @@ export default function ComoFuncionaPage() {
                   width={480}
                   height={600}
                   className="w-full h-full object-cover object-center"
+                  sizes="(max-width: 1024px) 95vw, 50vw"
                 />
               </div>
               {/* Checklist */}

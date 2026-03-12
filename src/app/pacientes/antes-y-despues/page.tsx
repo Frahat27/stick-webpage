@@ -107,6 +107,7 @@ export default function AntesYDespuesPage() {
                     width={500}
                     height={600}
                     className="w-full h-auto object-cover"
+                    sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
                   />
                 </div>
                 <div className="p-4 flex items-center justify-between">
