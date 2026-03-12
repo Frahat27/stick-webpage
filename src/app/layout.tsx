@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
 import { Montserrat, Nunito } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppFloatingButton from '@/components/layout/WhatsAppFloatingButton';
 import { SchemaOrg } from '@/components/layout/SchemaOrg';
+
+const GA_ID = 'G-QMR4SNSXTR';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -80,6 +83,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${montserrat.variable} ${nunito.variable}`}>
+      <head>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}', { page_path: window.location.pathname });
+          `}
+        </Script>
+      </head>
       <body className="min-h-screen flex flex-col bg-neutral-50 text-neutral-900 antialiased">
         <SchemaOrg />
         <Header />
