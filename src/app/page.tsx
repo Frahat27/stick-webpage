@@ -180,7 +180,7 @@ export default function Home() {
                   title: 'Consulta inicial y escaneo',
                   duration: 'Turno ~30 min',
                   description: 'Realizamos el escaneo digital 3D de tu boca. Sin moldes ni incomodidades, en unos 15 minutos tenemos todo lo que necesitamos.',
-                  img: '/Proceso /Escaneo.png',
+                  img: '/proceso/Escaneo.png',
                   position: 'object-center',
                 },
                 {
@@ -188,7 +188,7 @@ export default function Home() {
                   title: 'Diagnóstico y diseño digital',
                   duration: '~7 días',
                   description: 'El ortodoncista analiza tu escaneo y diseña el movimiento de cada diente. En aproximadamente 7 días tenés tu simulación lista para ver.',
-                  img: '/Proceso /Diagnostico.png',
+                  img: '/proceso/Diagnostico.png',
                   position: 'object-center',
                 },
                 {
@@ -196,7 +196,7 @@ export default function Home() {
                   title: 'Comienzo del tratamiento y controles mensuales',
                   duration: 'Mensual',
                   description: 'Entregamos los primeros alineadores y comenzamos los controles clínicos cada 30 días. Si hay desvíos, rediseñamos.',
-                  img: '/Proceso /Seguimiento.jpg',
+                  img: '/proceso/Seguimiento.jpg',
                   position: 'object-top',
                 },
                 {
@@ -204,7 +204,7 @@ export default function Home() {
                   title: 'Fin del tratamiento',
                   duration: '6 a 10 meses',
                   description: 'Retiramos los attachments, documentamos el resultado final y entregamos las contenciones para mantener tu nueva sonrisa.',
-                  img: '/Proceso /Fin Tratamiento 2.jpg',
+                  img: '/proceso/Fin Tratamiento 2.jpg',
                   position: 'object-top',
                 },
               ].map(({ num, title, duration, description, img, position }) => (
