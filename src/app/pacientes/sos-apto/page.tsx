@@ -155,7 +155,7 @@ export default function SosAptoPage() {
         </Container>
       </section>
 
-      {/* Illustrated cases */}
+      {/* Illustrated cases – accordion */}
       <Section className="bg-white">
         <Container>
           <div className="max-w-3xl mx-auto">
@@ -166,29 +166,36 @@ export default function SosAptoPage() {
               <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900">¿En qué casos funcionan bien?</h2>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4 mb-6">
+            <div className="divide-y divide-neutral-100 border border-neutral-100 rounded-2xl overflow-hidden shadow-sm mb-6">
               {illustratedCases.map(({ id, title, desc, Illustration }) => (
-                <div
-                  key={id}
-                  className="bg-white rounded-2xl border border-neutral-100 shadow-sm overflow-hidden hover:shadow-md hover:border-brand-200 transition-all"
-                >
-                  <div className="bg-brand-50 px-8 py-5 flex items-center justify-center h-28">
-                    <div className="w-full max-w-[150px]">
-                      <Illustration />
-                    </div>
-                  </div>
-                  <div className="p-5">
-                    <div className="flex items-start gap-2.5 mb-2">
-                      <div className="w-5 h-5 rounded-full bg-lime-300 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <svg className="w-3 h-3 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <details key={id} className="group bg-white">
+                  <summary className="flex items-center justify-between px-6 py-5 cursor-pointer [list-style:none] [&::-webkit-details-marker]:hidden hover:bg-brand-50/60 transition-colors">
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-lime-300 flex items-center justify-center flex-shrink-0">
+                        <svg className="w-3.5 h-3.5 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <p className="font-bold text-neutral-900 text-sm leading-snug">{title}</p>
+                      <span className="text-lg font-bold text-neutral-900">{title}</span>
                     </div>
-                    <p className="text-sm text-neutral-500 leading-relaxed pl-7">{desc}</p>
+                    <svg
+                      className="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
+                      fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div className="px-6 pb-6 pt-2 border-t border-neutral-100">
+                    <div className="grid md:grid-cols-2 gap-5 items-center mt-3">
+                      <div className="bg-brand-50 rounded-xl p-6 flex items-center justify-center">
+                        <div className="w-full max-w-[200px]">
+                          <Illustration />
+                        </div>
+                      </div>
+                      <p className="text-base text-neutral-600 leading-relaxed">{desc}</p>
+                    </div>
                   </div>
-                </div>
+                </details>
               ))}
             </div>
 
