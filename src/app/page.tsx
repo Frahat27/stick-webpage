@@ -308,9 +308,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
             {[
-              { src: '/images/before-after/1.png', label: 'Apiñamiento frontal', duration: '8 meses' },
-              { src: '/images/before-after/2.png', label: 'Apiñamiento inferior', duration: '6 meses' },
-              { src: '/images/before-after/Facundo Dyzel - AyD.png', label: 'Corrección total', duration: '7 meses' },
+              { src: '/images/before-after/2.png', label: 'Apiñamiento frontal', duration: '8 meses' },
+              { src: '/images/before-after/3.png', label: 'Apiñamiento inferior', duration: '6 meses' },
+              { src: '/images/before-after/4.png', label: 'Corrección total', duration: '7 meses' },
             ].map((c) => (
               <div key={c.src} className="rounded-2xl overflow-hidden border border-neutral-100 shadow-sm bg-white hover:shadow-md transition-shadow">
                 <Image
