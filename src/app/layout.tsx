@@ -4,6 +4,7 @@ import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import ChatWidget from '@/components/layout/ChatWidget';
 import WhatsAppFloatingButton from '@/components/layout/WhatsAppFloatingButton';
 import { SchemaOrg } from '@/components/layout/SchemaOrg';
 
@@ -103,6 +104,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppFloatingButton />
+        <ChatWidget />
       </body>
     </html>
   );
